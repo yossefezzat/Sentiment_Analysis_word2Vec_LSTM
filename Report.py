@@ -4,11 +4,8 @@ import SVM_Model as svm
 
 
 svm_accuracy = svm.SVM_Model()
-average_accuracy , acc = lstm.LSTM_model(lstm.average_data)
-sum_accuracy, acc2 = lstm.LSTM_model(lstm.sum_data)
-
-print('model train acc 1 ' , acc)
-
+average_accuracy = lstm.LSTM_model(lstm.average_data)
+sum_accuracy = lstm.LSTM_model(lstm.sum_data)
 
 # plotting models accuracies
 def plotting(objects , limits , performance, label , title):

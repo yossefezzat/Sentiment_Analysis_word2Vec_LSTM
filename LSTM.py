@@ -47,9 +47,9 @@ def LSTM_model(average_or_sum):
     model.add(keras.layers.Dense(3, activation='softmax'))
     model.compile(loss='categorical_crossentropy', optimizer='adam' , metrics=['accuracy'])
     print(model.summary())
-    history = model.fit(train_X , train_Y , epochs = 10 , batch_size = 64 ,  verbose=1)
+    model.fit(train_X , train_Y , epochs = 10 , batch_size = 64 ,  verbose=1)
     accuracy = test_model(model , test_X , test_Y)
-    return accuracy , history.history['acc']
+    return accuracy 
 
 
 
