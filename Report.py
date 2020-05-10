@@ -1,26 +1,29 @@
-
 import matplotlib.pyplot as plt
-
 import LSTM as lstm
 import SVM_Model as svm
 
 
-
 svm_accuracy = svm.SVM_Model()
+average_accuracy , acc = lstm.LSTM_model(lstm.average_data)
+sum_accuracy, acc2 = lstm.LSTM_model(lstm.sum_data)
 
-average_accuracy = lstm.LSTM_model(lstm.average_data)
-
-sum_accuracy = lstm.LSTM_model(lstm.sum_data)
+print('model train acc 1 ' , acc)
 
 
-objects = ('SVM', 'Average Lstm', 'Sum Lstm')
+# plotting models accuracies
+def plotting(objects , limits , performance, label , title):
+    objects = objects
+    performance = performance
+    plt.ylim(limits)
+    plt.bar(objects, performance, align='center', alpha=0.5)
+    plt.xticks(objects, objects)
+    plt.ylabel(label)
+    plt.title(title)
+    plt.show()
 
-performance = [svm_accuracy , average_accuracy , sum_accuracy]
-plt.ylim([0 , 1])
-plt.bar(objects, performance, align='center', alpha=0.5)
-plt.xticks(objects, objects)
-plt.ylabel('Accuracy')
-plt.title('Test Accuracies')
+test_accuracy_objects = ('SVM', 'Average Lstm', 'Sum Lstm')
+test_accuracy_performance = [svm_accuracy , average_accuracy , sum_accuracy]
+limit = [0 , 1]
 
-plt.show()
 
+plotting(test_accuracy_objects, limit, test_accuracy_performance , 'Accuracy' ,'Test Accuracies')
