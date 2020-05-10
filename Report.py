@@ -6,13 +6,13 @@ import SVM_Model as svm
 
 
 
-#svm_accuracy = svm.SVM_Model()
+svm_accuracy = svm.SVM_Model()
 
-#average_accuracy = lstm.LSTM_model(lstm.average_data)
+average_accuracy = lstm.LSTM_model(lstm.average_data)
 
 sum_accuracy = lstm.LSTM_model(lstm.sum_data)
 
-'''
+
 objects = ('SVM', 'Average Lstm', 'Sum Lstm')
 
 performance = [svm_accuracy , average_accuracy , sum_accuracy]
@@ -24,4 +24,3 @@ plt.title('Test Accuracies')
 
 plt.show()
 
-'''

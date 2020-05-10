@@ -35,7 +35,7 @@ def prepare_model(average_or_sum):
     train_X = train_X.reshape(train_X.shape[0], 1 , train_X.shape[1])
     train_Y = np.array(train_Y , dtype='int')
     train_Y = keras.utils.to_categorical( train_Y , num_classes = 3 )
-    
+
     test_X = np.array(test_X)
     test_X = test_X.reshape(test_X.shape[0], 1 , test_X.shape[1])
     return train_X , train_Y , test_X , test_Y
@@ -46,7 +46,7 @@ def LSTM_model(average_or_sum):
     model = keras.Sequential()
     model.add(keras.layers.LSTM(120,input_shape=(1, data.size_vec)))
     model.add(keras.layers.Dense(3, activation='softmax'))
-    model.compile(loss='sparse_categorical_crossentropy', optimizer='adam' , metrics=['accuracy'])
+    model.compile(loss='categorical_crossentropy', optimizer='adam' , metrics=['accuracy'])
     print(model.summary())
     print(train_Y)
     model.fit(train_X , train_Y , epochs = 10 , batch_size = 64 ,  verbose=1)
